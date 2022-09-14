@@ -5,14 +5,14 @@ pipeline {
         stage('docker build') {
             steps {
                 script {
-                    sh "sudo docker build -f 02-primer-pipeline/Dockerfile -t jorgegonzalezutec/homer_page:1.0.0-${BUILD_ID} 02-primer-pipeline"
+                    sh "docker build -f 02-primer-pipeline/Dockerfile -t jorgegonzalezutec/homer_page:1.0.0-${BUILD_ID} 02-primer-pipeline"
                 }
             }
         }
         stage('docker push') {
             steps {
                 script {
-                    sh "sudo docker push jorgegonzalezutec/homer_page:1.0.0-${BUILD_ID}"
+                    sh "docker push jorgegonzalezutec/homer_page:1.0.0-${BUILD_ID}"
                 }
             }
         }
